@@ -13,8 +13,8 @@ const initialConfirmState = {
 
 declare interface InitialStateType {
   isActive: boolean;
-  proceed: (value: unknown) => void;
-  cancel: (value: unknown) => void;
+  proceed: () => void;
+  cancel: () => void;
 }
 
 declare interface ConfirmLeaveReturnType extends InitialStateType {
@@ -43,7 +43,7 @@ const useConfirm = (): ConfirmLeaveReturnType => {
   }, []);
 
   const onConfirm = async (): Promise<boolean> => {
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise<void>((resolve, reject) => {
       setConfirm((prevState: InitialStateType) => ({
         ...prevState,
         isActive: true,

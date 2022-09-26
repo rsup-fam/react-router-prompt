@@ -8,8 +8,8 @@ type ReactRouterPromptProps = {
   when: boolean;
   children: (data: {
     isActive: boolean;
-    onCancel: (value: unknown) => void;
-    onConfirm: (value: unknown) => void;
+    onCancel: () => void;
+    onConfirm: () => void;
   }) => React.ReactNode;
 };
 
